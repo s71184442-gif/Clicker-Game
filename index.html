@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3 id="oio">oioi song!</h3>
+    <h1>Clicker game</h1>
+    <button id="oioiplayer" disabled>play</button>
+    <audio src="videoplayback.m4a" id="o" ></audio>;
+    
+    <h3 id="song1">Relaxing song costs 50 :</h3>
+    <span>
+    <audio src="Relaxing Sleep Music — Instant Calm (www.lightaudio.ru).mp3"  id="song" disabled autoplay width="20px" style="background-color: aqua;"></audio>;
+    </span>
+    <button id="active" disabled>activate</button>
+    <h3 id="upg0">click upgrade cost:20 :</h3>
+    <button id="up" disabled>upgrade</button>
+    <button id="btn" style="background-color: blue; color: antiquewhite; border-radius: 10px; width: 100px; height: 50px;"></button>
+    <script>
+        let song = document.getElementById('song');
+        
+        let x = 0;
+        let btn = document.getElementById('btn');
+        btn.onclick = () => btn.textContent = ++x;
+        let up = document.getElementById('up');
+        let interval = setInterval(() => {
+            if (x === 20) {
+                up.disabled = false;
+                clearInterval(interval);
+            }
+        }, 0);
+        let active = document.getElementById('active');
+        let interval1 = setInterval(() => {
+            if (x === 50) {
+                active.disabled = false;
+
+                clearInterval(interval1);
+            }
+        }, 0);
+       
+        
+        
+        
+
+
+        up.onclick = () => {
+            btn.onclick = () => btn.textContent = x += 2;
+            up.disabled = true;
+            upg0.hidden = true;
+        }
+        
+        
+        active.onclick = () => {
+            song.controls = true;
+            active.disabled = true;
+            song1.hidden = true;
+            
+        }
+        o.disabled = true;
+        oioiplayer.onclick = () => {
+            o.controls = true;
+        }
+        let play = document.getElementById('oioiplayer');
+        let interval2 = setInterval(() => {
+            if (x === 100) {
+                play.disabled = false;
+                
+                clearInterval(interval2);
+            }
+        }, 0);
+    </script>
+   
+</body>
+</html>
